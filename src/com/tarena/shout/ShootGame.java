@@ -113,6 +113,7 @@ public class ShootGame extends JPanel{
 			return new Airplane();
 		}
 	}
+	
 	int flyEnteredIndex=0;
 	public void enterAction(){//10毫秒走一次
 		//创建敌人对象

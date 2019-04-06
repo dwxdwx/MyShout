@@ -23,8 +23,8 @@ public class Hero extends FlyingObject{
 
 
 	public void hitHero()  {
-            images=new BufferedImage[]{ShootGame.hero1,ShootGame.hero2};
-       test1();
+	    images=new BufferedImage[]{ShootGame.hero1,ShootGame.hero2};
+        test1();
 
     }
 

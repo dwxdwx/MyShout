@@ -322,7 +322,8 @@ public class ShootGame extends JPanel{
 			}
 		},intervel,intervel);//第一个要求timertask类型；第二个是开始到第一次触发的间隔；第三个是第二次到第三次触发的间隔
 	}
-	
+
+
 
     public static void main(String[] args) {
 		JFrame frame=new JFrame("fly");

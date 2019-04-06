@@ -107,7 +107,7 @@ public class ShootGame extends JPanel{
 		int type=rand.nextInt(20);
 		if(type<4){
 			return new BigBee();
-		}else if (type==5) {
+		}else if (type==5||type==6) {
 			return new Bee();
 		}else{
 			return new Airplane();

@@ -25,6 +25,7 @@ public class ShootGame extends JPanel{
 	public static BufferedImage bullet;//子弹图
 	public static BufferedImage hero0;//英雄机0---和1一起构成动态图
 	public static BufferedImage hero1;//英雄机1
+	public static BufferedImage hero2;//英雄机2
 	public static BufferedImage bigBee;//大怪图
 	public static final int START=0;//启动
 	public static final int RUNNING=1;//运行
@@ -46,6 +47,7 @@ public class ShootGame extends JPanel{
 			bullet=ImageIO.read(ShootGame.class.getResource("image/bullet.png"));
 			hero0=ImageIO.read(ShootGame.class.getResource("image/hero0.png"));
 			hero1=ImageIO.read(ShootGame.class.getResource("image/hero1.png"));
+			hero2=ImageIO.read(ShootGame.class.getResource("image/hero2.png"));
 			bigBee=ImageIO.read(ShootGame.class.getResource("image/bigBee.png"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -113,7 +115,7 @@ public class ShootGame extends JPanel{
 			return new Airplane();
 		}
 	}
-	
+
 	int flyEnteredIndex=0;
 	public void enterAction(){//10毫秒走一次
 		//创建敌人对象
@@ -250,6 +252,7 @@ public class ShootGame extends JPanel{
 		for(int i=0;i<flyings.length;i++){
 			FlyingObject f=flyings[i];
 			if(hero.hit(f)){//撞上
+                hero.hitHero();
 				hero.subtractLife();
 				hero.clealDoubleFire();
 				FlyingObject t=flyings[i];//将被撞敌人与最后的一个元素交换

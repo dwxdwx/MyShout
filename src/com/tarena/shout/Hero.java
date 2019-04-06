@@ -1,5 +1,7 @@
 package com.tarena.shout;
 import java.awt.image.BufferedImage;
+import java.util.Timer;
+import java.util.TimerTask;
 
 //英雄机
 public class Hero extends FlyingObject{
@@ -18,6 +20,28 @@ public class Hero extends FlyingObject{
 		images=new BufferedImage[]{ShootGame.hero0,ShootGame.hero1};
 		index=0;
 	}
+
+
+	public void hitHero()  {
+            images=new BufferedImage[]{ShootGame.hero1,ShootGame.hero2};
+       test1();
+
+    }
+
+    //指定就爆炸几秒
+    public  void test1() {
+        //创建Timer
+        final Timer timer = new Timer();
+        //设定定时任务
+        timer.schedule(new TimerTask() {
+            //定时任务执行方法
+            @Override
+            public void run() {
+                images=new BufferedImage[]{ShootGame.hero0,ShootGame.hero1};
+            }
+        }, 1000);
+    }
+
 	@Override
 	public void step() {
 		image=images[index++/10%images.length];

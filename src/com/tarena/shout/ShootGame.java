@@ -66,7 +66,7 @@ public class ShootGame extends JPanel{
 		paintScroreAndLife(g);
 		patintState(g);
 	}
-	
+
 	//画分画命
 		public void paintScroreAndLife(Graphics g){
 			g.setColor(new Color(0xD8FFA3));//设置颜色

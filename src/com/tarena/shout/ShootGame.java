@@ -1,6 +1,10 @@
 package com.tarena.shout;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
 import java.util.Random;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -62,6 +66,7 @@ public class ShootGame extends JPanel{
 		paintScroreAndLife(g);
 		patintState(g);
 	}
+	
 	//画分画命
 		public void paintScroreAndLife(Graphics g){
 			g.setColor(new Color(0xD8FFA3));//设置颜色
@@ -263,9 +268,26 @@ public class ShootGame extends JPanel{
 		}
 		return hero.getLife()<=0;//命数小于等于0结束
 	}
+
+
+//	//音乐
+//    public void playMusic()
+//    {
+//        try {
+//            FileInputStream fileau=new FileInputStream("music.wav" );
+//            AudioStream as=new AudioStream(fileau);
+//            AudioPlayer.player.start(as);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//    }
+
+
+
 	
 	//启动程序的执行
 	public void action(){
+//        playMusic();
 		MouseAdapter l=new MouseAdapter() {
 			//重写鼠标移动事件
 			public void mouseMoved(MouseEvent e){

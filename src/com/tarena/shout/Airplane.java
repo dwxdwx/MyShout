@@ -10,7 +10,6 @@ public class Airplane extends FlyingObject implements Enemy {
 		Random rand=new Random();
 		x=rand.nextInt(ShootGame.WIDTH-this.width);//敌机的初始位置
 		y=-this.heighet;
-
 	}
 	//重写getScore()
 	public int getScore(){

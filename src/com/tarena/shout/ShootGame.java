@@ -39,7 +39,12 @@ public class ShootGame extends JPanel{
 	private Hero hero=new Hero();
 	private FlyingObject[] flyings={};
 	private Bullet[] bullets={};
-	
+	//Play0 play0 = new Play0("F:\\Chrome下载\\【批量下载】flys等\\分享\\项目\\MyShout\\src\\com\\tarena\\shout\\music\\music.mp3");
+	//Play0 play1 = new Play0("F:\\Chrome下载\\【批量下载】flys等\\分享\\项目\\MyShout\\src\\com\\tarena\\shout\\music\\pengzhuang.mp3");
+	Play0 play1 = new Play0("F:\\Chrome下载\\【批量下载】flys等\\分享\\项目\\MyShout\\src\\com\\tarena\\shout\\music\\kaiju.mp3");
+	Play0 play2 = new Play0("F:\\Chrome下载\\【批量下载】flys等\\分享\\项目\\MyShout\\src\\com\\tarena\\shout\\music\\siwang.mp3");
+	//Play0 play5 = new Play0("F:\\Chrome下载\\【批量下载】flys等\\分享\\项目\\MyShout\\src\\com\\tarena\\shout\\music\\little.mp3");
+
 	static{
 		try {
 			background=ImageIO.read(ShootGame.class.getResource("image/background.png"));
@@ -119,6 +124,7 @@ public class ShootGame extends JPanel{
 		}else{
 			return new Airplane();
 		}
+
 	}
 
 	int flyEnteredIndex=0;
@@ -191,6 +197,7 @@ public class ShootGame extends JPanel{
 	int score=0;
 	
 	public void bang(Bullet b,int bu){
+        //play5.start();
 		int index=-1;
 		for(int i=0;i<flyings.length;i++){
 			FlyingObject f=flyings[i];
@@ -243,12 +250,15 @@ public class ShootGame extends JPanel{
 			bullets[bu]=bullets[bullets.length-1];
 			bullets[bullets.length-1]=tBullet;
 			bullets=Arrays.copyOf(bullets, bullets.length-1);//去掉子弹
+            //play5.stop();
 		}
 	}
 	
 	//敌人和英雄机相撞
 	public void checkGameOverAction(){
 		if(isGameOver()){
+            play1.stop();
+		    play2.start();
 			state=GAMEOVER;
 		}
 	}
@@ -257,6 +267,7 @@ public class ShootGame extends JPanel{
 		for(int i=0;i<flyings.length;i++){
 			FlyingObject f=flyings[i];
 			if(hero.hit(f)){//撞上
+				//play1.start();
                 hero.hitHero();
 				hero.subtractLife();
 				hero.clealDoubleFire();
@@ -270,24 +281,13 @@ public class ShootGame extends JPanel{
 	}
 
 
-//	//音乐
-//    public void playMusic()
-//    {
-//        try {
-//            FileInputStream fileau=new FileInputStream("music.wav" );
-//            AudioStream as=new AudioStream(fileau);
-//            AudioPlayer.player.start(as);
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
-//    }
 
 
 
 	
 	//启动程序的执行
 	public void action(){
-//        playMusic();
+		play1.start();
 		MouseAdapter l=new MouseAdapter() {
 			//重写鼠标移动事件
 			public void mouseMoved(MouseEvent e){

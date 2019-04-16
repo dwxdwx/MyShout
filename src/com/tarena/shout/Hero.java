@@ -9,6 +9,7 @@ public class Hero extends FlyingObject{
 	private int doubleFire;
 	private BufferedImage[] images;
 	private int index;
+   // Play0 play3 = new Play0("F:\\Chrome下载\\【批量下载】flys等\\分享\\项目\\MyShout\\src\\com\\tarena\\shout\\music\\pengzhuang.mp3");
 	public Hero(){
 		image=ShootGame.hero0;
 		width=image.getWidth();//获取图片的宽
@@ -24,12 +25,31 @@ public class Hero extends FlyingObject{
 
 	public void hitHero()  {
 	    images=new BufferedImage[]{ShootGame.hero1,ShootGame.hero2};
+	    //play3.start();
         test1();
+        //test2();
+
+
 
     }
+//
+//    //指定音乐放几秒
+//    public  void test2() {
+//        //创建Timer
+//        final Timer timer2 = new Timer();
+//        //设定定时任务
+//        timer2.schedule(new TimerTask() {
+//            //定时任务执行方法
+//            @Override
+//            public void run() {
+//                play3.stop();
+//            }
+//        }, 1000);
+//
+//    }
 
     //指定就爆炸几秒
-    public  void test1() {
+    public  boolean test1() {
         //创建Timer
         final Timer timer = new Timer();
         //设定定时任务
@@ -38,8 +58,10 @@ public class Hero extends FlyingObject{
             @Override
             public void run() {
                 images=new BufferedImage[]{ShootGame.hero0,ShootGame.hero1};
+               //play3.start();
             }
         }, 1000);
+            return true;
     }
 
 	@Override
@@ -105,7 +127,7 @@ public class Hero extends FlyingObject{
 	}
 	//减命
 	public void subtractLife(){
-		life--;
+	    life--;
 	}
 	public void clealDoubleFire(){
 		doubleFire=0;
